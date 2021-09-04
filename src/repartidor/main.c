@@ -82,11 +82,11 @@ int main(int argc, char const *argv[])
     else
     {
       printf("%i llego a la bodega\n", getpid());
-      if (ultimo)
-      {
-        printf("Llegó el último\n");
-        exit(0);
-      }
+      // if (ultimo)
+      // {
+      //   printf("Llegó el último\n");
+      //   exit(0);
+      // }
       printf("jijijiji");
       while (true)
         ;
