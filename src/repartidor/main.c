@@ -87,6 +87,7 @@ int main(int argc, char const *argv[])
         printf("Llegó el último\n");
         exit(0);
       }
+      printf("jijijiji");
       while (true)
         ;
     }
