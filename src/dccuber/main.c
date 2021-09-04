@@ -90,7 +90,7 @@ void handle_sigusr2(int sig)
   kill(principal_pid, SIGINT);
 }
 
-void kill_repartidores()
+void kill_repartidores(int sig)
 {
   int status;
   printf("ABRT A FABRICA\n");
@@ -178,7 +178,7 @@ int main(int argc, char const *argv[])
       alarm(strtol(data_in->lines[1][0], NULL, 10));
       connect_sigaction(SIGUSR1, handle_sigusr1);
       printf("pid rep %i\n", repartidores_pid[0]);
-      kill_repartidores();
+      kill_repartidores;
       waitpid(repartidores_pid[cant_repartidores - 1], &status_fabrica, 0);
     }
   }
