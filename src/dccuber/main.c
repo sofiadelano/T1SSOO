@@ -180,6 +180,7 @@ int main(int argc, char const *argv[])
       printf("pid rep %i\n", repartidores_pid[0]);
       waitpid(repartidores_pid[cant_repartidores - 1], &status_fabrica, 0);
       kill_repartidores;
+      waitpid(repartidores_pid[cant_repartidores - 1], &status_fabrica, 0);
     }
   }
   else
