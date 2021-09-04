@@ -33,7 +33,7 @@ void handle_sigabrt(int sig)
   fprintf(output, ",");
   fprintf(output, "%i", cant_turnos[3]);
   fclose(output);
-  exit(0);
+  // exit(0);
 }
 
 int main(int argc, char const *argv[])
