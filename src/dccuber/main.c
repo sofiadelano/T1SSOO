@@ -90,13 +90,13 @@ void handle_sigusr2(int sig)
   kill(principal_pid, SIGINT);
 }
 
-void kill_repartidores(int sig)
+void kill_repartidores()
 {
   int status;
-  printf("ABRT A FABRICA\n");
+  printf("ABRT A REPARTIDORES\n");
   for (int i = 0; i < cant_repartidores; i++)
   {
-    kill(repartidores_pid[0], SIGABRT);
+    kill(repartidores_pid[i], SIGABRT);
   }
 }
 
