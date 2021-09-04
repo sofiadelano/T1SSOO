@@ -178,7 +178,7 @@ int main(int argc, char const *argv[])
       alarm(strtol(data_in->lines[1][0], NULL, 10));
       connect_sigaction(SIGUSR1, handle_sigusr1);
       printf("pid rep %i\n", repartidores_pid[0]);
-      waitpid(repartidores_pid[cant_repartidores], &status_fabrica, 0);
+      waitpid(repartidores_pid[cant_repartidores - 1], &status_fabrica, 0);
       kill_repartidores;
     }
   }

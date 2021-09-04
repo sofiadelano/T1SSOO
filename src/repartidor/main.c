@@ -85,7 +85,7 @@ int main(int argc, char const *argv[])
       if (ultimo)
       {
         printf("Llegó el último\n");
-        kill(parent_pid, SIGUSR2);
+        exit(0);
       }
       while (true)
         ;
