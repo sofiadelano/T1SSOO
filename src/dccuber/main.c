@@ -47,11 +47,13 @@ void handle_sigalrm(int sig)
       sprintf(&ubicacion_semaforos[2], "%d", strtol(data_in->lines[0][2], NULL, 10));
       sprintf(&ubicacion_bodega, "%d", strtol(data_in->lines[0][3], NULL, 10));
       sprintf(&pid_parent, "%d", pid_parent);
-      if (i == cantidad_restante-1)
+      if (i == cantidad_restante - 1)
       {
         printf("SE MANDO ULTIMOOOOO\n");
         sprintf(&ultimo, "%d", 1);
-      } else {
+      }
+      else
+      {
         sprintf(&ultimo, "%d", 0);
       }
       myargs[0] = strdup("./repartidor");
@@ -88,7 +90,7 @@ void handle_sigusr2(int sig)
   kill(principal_pid, SIGINT);
 }
 
-void handle_sigabrt(int sig)
+void kill_repartidores()
 {
   int status;
   printf("ABRT A FABRICA\n");
@@ -172,11 +174,12 @@ int main(int argc, char const *argv[])
     {
       signal(SIGALRM, handle_sigalrm);
       signal(SIGUSR2, handle_sigusr2);
-      signal(SIGABRT, handle_sigabrt);
+      // signal(SIGABRT, handle_sigabrt);
       alarm(strtol(data_in->lines[1][0], NULL, 10));
       connect_sigaction(SIGUSR1, handle_sigusr1);
       printf("pid rep %i\n", repartidores_pid[0]);
-      waitpid(repartidores_pid[cant_repartidores-1], &status_fabrica, 0);
+      waitpid(repartidores_pid[cant_repartidores - 1], &status_fabrica, 0);
+      kill_repartidores();
     }
   }
   else
