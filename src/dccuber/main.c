@@ -85,11 +85,11 @@ void handle_sigusr1(int sig, siginfo_t *siginfo, void *context)
   }
 }
 
-void handle_sigusr2(int sig)
-{
-  printf("Llegó señal del último\n");
-  kill(principal_pid, SIGINT);
-}
+// void handle_sigusr2(int sig)
+// {
+//   printf("Llegó señal del último\n");
+//   kill(principal_pid, SIGINT);
+// }
 
 void kill_repartidores()
 {
@@ -174,7 +174,7 @@ int main(int argc, char const *argv[])
     else
     {
       signal(SIGALRM, handle_sigalrm);
-      signal(SIGUSR2, handle_sigusr2);
+      // signal(SIGUSR2, handle_sigusr2);
       // signal(SIGABRT, handle_sigabrt);
       alarm(strtol(data_in->lines[1][0], NULL, 10));
       connect_sigaction(SIGUSR1, handle_sigusr1);
@@ -183,6 +183,7 @@ int main(int argc, char const *argv[])
       wait(NULL);
       kill_repartidores;
       waitpid(repartidores_pid[cant_repartidores - 1], &status_fabrica, 0);
+      kill(principal_pid, SIGINT);
     }
   }
   else
