@@ -50,6 +50,7 @@ void handle_sigalrm(int sig)
       if (i == cantidad_restante - 1)
       {
         printf("SE MANDO ULTIMOOOOO\n");
+        printf(cantidad_restante - 1);
         sprintf(&ultimo, "%d", 1);
       }
       else
