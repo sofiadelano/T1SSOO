@@ -205,7 +205,7 @@ int main(int argc, char const *argv[])
       }
     }
     int status_main;
-    signal(SIGINT, handle_sigint);
+    // signal(SIGINT, handle_sigint);
     waitpid(fabrica_pid, &status_main, 0);
     kill(semaforos_pid[0], SIGABRT);
     kill(semaforos_pid[1], SIGABRT);
